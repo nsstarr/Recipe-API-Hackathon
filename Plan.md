@@ -9,21 +9,14 @@ HACKATHON PLAN
     - set up router.get with a specified id ✅
     - app.use fro the id path ✅
     - Make recipe data with a new recipe ✅
-    - write the code in router's file to post
-    - Post the data with Postman
+    - write the code in router's file to post ✅
+    - Post the data with Postman ✅
 
-    {
-    id: 2,
-    title: "Vegetarian Lasagne",
-    ingredients: ["3 red peppers,
-2 aubergines,
-8 tbsp olive oil,
-300g lasagne sheets,
-125g mozzarella,
-handful cherry tomatoes"],
-    instructions: `Heat the oven to 200C/180C fan/gas 6. Lightly oil two large baking trays and add the peppers and aubergines. Toss with the olive oil, season well, then roast for 25 mins until lightly browned.`,
-    image:
-      "https://images.immediate.co.uk/production/volatile/sites/30/2020/08/recipe-image-legacy-id-1273584_8-0cfaa81.jpg?quality=90&webp=true&resize=375,341",
-  },
+        {"id": 1,
+    "title": "NEW",
+    "ingredients": ["150g of beans", "150g of butter", "150g of toast"],
+    "instructions": "Put the butter in your mouth, wait 2 seconds to allow slight melting. Then follow with the toast. Swish around for 10-15 seconds to allow even coating of butter on the toast. Then add the beans, slowly. Season to taste.",
+    "image":
+      "https://natashaskitchen.com/wp-content/uploads/2019/04/Best-Burger-4-500x375.jpg"}
    
  

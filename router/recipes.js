@@ -63,3 +63,20 @@ recipesRouter.post(`/`, function(req, res) {
         const responseObject = {success: true, payload: searchedRecipe}
         res.json(responseObject)
   })
+
+  /*
+  - Iterate through the loop to find an id of the recipe we want to remove
+  - Use splice method to remove an array item with a matched id 
+  - Update responseObject
+  - No need to use express.json() to delete requests
+  */
+recipesRouter.delete('/:id', function (req, res) {
+  const id = req.params.id;
+  let deletedRecipe = {}
+  for (let i = 0; i < recipes.length; i++) {
+    if (Number(id) === recipes[i].id) {
+     deletedRecipe = recipes.splice(recipes[i])
+     break}  }
+    const responseObject = {success: true, payload: deletedRecipe}
+    res.json(responseObject)
+    })
