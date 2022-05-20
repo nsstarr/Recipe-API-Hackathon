@@ -1,14 +1,8 @@
 import recipes from "../libs/recipes.js";
 
-import recipesRouter from "../router/recipes.js"
-
 // GET ALL RECIPES
- export function getRecipes() { 
-    recipesRouter.get("/", function (req, res) {
-    const responseObject = {success: true, payload: recipes}
-    res.json(responseObject)
-    }
-  ) 
+export function getRecipes() { 
+return recipes;
 }
 
 

@@ -2,33 +2,41 @@
 import express from "express";
 const recipesRouter = express.Router();
 
-//import recipes from '../libs/recipes.js';
-
-let express = express()
-
-express.use(express.json()
-
-
-
 import {getRecipes} from "../models/recipes.js"
 
-recipesRouter.use("/",getRecipes())
+recipesRouter.get("/", function (req, res) {
+  const recipes = getRecipes()
+  const responseObject = {success: true, payload: recipes}
+  res.json(responseObject)
+})
 
-import {getRecipeByID} from "../models/recipes.js"
+export default recipesRouter; 
 
-recipesRouter.use(":/id",getRecipeByID())
 
-import {createRecipe} from "../models/recipes.js"
 
-recipesRouter.use("/",createRecipe())
 
-import {updateRecipeByID} from "../models/recipes.js"
 
-recipesRouter.use(":/if",updateRecipeByID())
 
-import {deleteRecipeByID} from "../models/recipes.js"
 
-recipesRouter.use(":/id",deleteRecipeByID())
+
+
+// recipesRouter.use("/",getRecipes())
+
+// import {getRecipeByID} from "../models/recipes.js"
+
+// recipesRouter.use(":/id",getRecipeByID())
+
+// import {createRecipe} from "../models/recipes.js"
+
+// recipesRouter.use("/",createRecipe())
+
+// import {updateRecipeByID} from "../models/recipes.js"
+
+// recipesRouter.use(":/if",updateRecipeByID())
+
+// import {deleteRecipeByID} from "../models/recipes.js"
+
+// recipesRouter.use(":/id",deleteRecipeByID())
 
 
 
