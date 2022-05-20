@@ -44,3 +44,16 @@ recipesRouter.post(`/`, function(req, res) {
   - delete object that matches id;
   - replace with updated recipe
    */
+
+  recipesRouter.put('/recipes/<recipe_id>', function(req, res) {
+    const id = req.params.id;
+    const body = req.body;
+    let searchedRecipe = {}
+    for (let i = recipes.length - 1; i >= recipes.length; i--) {
+        if (Number(id) === recipes[i].id) {
+            searchedRecipe = recipes[i];
+            searchedRecipe = body;}
+          }
+        const responseObject = {success: true, payload: searchedRecipe}
+        res.json(responseObject)
+  })
