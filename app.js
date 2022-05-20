@@ -15,6 +15,7 @@ app.get("/", function (req, res) {
   res.sendFile(html);
 });
 
+app.use("/recipes", recipesRouter)
 
 
 app.listen(PORT, () => {
