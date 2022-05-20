@@ -45,15 +45,21 @@ recipesRouter.post(`/`, function(req, res) {
   - replace with updated recipe
    */
 
-  recipesRouter.put('/recipes/<recipe_id>', function(req, res) {
+  recipesRouter.put('/:id', function(req, res) {
     const id = req.params.id;
+    console.log(id)
     const body = req.body;
+    console.log(body)
     let searchedRecipe = {}
-    for (let i = recipes.length - 1; i >= recipes.length; i--) {
+    console.log(searchedRecipe)
+    for (let i = 0; i < recipes.length; i++) {
         if (Number(id) === recipes[i].id) {
-            searchedRecipe = recipes[i];
-            searchedRecipe = body;}
-          }
+            recipes[i] = body
+            searchedRecipe = recipes[i]
+            break
+        }
+    }
+    console.log(recipes)
         const responseObject = {success: true, payload: searchedRecipe}
         res.json(responseObject)
   })
