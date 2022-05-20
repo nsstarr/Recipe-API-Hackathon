@@ -17,7 +17,8 @@ recipesRouter.get("/", function (req, res) {
 import {getRecipeByID} from "../models/recipes.js"
 
 recipesRouter.get("/:id", function(req, res) {
-     const searchedRecipe = getRecipeByID()
+     let id = req.params.id 
+     const searchedRecipe = getRecipeByID(id)
      const responseObject = {success: true, payload: searchedRecipe}
      res.json(responseObject)
      }

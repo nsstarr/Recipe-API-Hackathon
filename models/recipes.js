@@ -10,13 +10,12 @@ return recipes;
 
 
 // GET A RECIPE BY ID
-export function getRecipeByID() { 
-    let id = req.params.id 
+export function getRecipeByID(n) { 
     let searchedRecipe = {}
     for (let i=0; i < recipes.length; i++) {
-       if (Number(id) === recipes[i].id) {
+       if (Number(n) === recipes[i].id) {
        searchedRecipe = recipes[i]
-       return
+       return searchedRecipe
        }
      }
    
