@@ -17,6 +17,9 @@ app.get("/", function (req, res) {
 
 app.use("/recipes", recipesRouter)
 
+app.use("/recipes/<recipe_id>", recipesRouter)
+
+app.use(express.json())
 
 app.listen(PORT, () => {
   console.log(`Listening on port ${PORT}`);
