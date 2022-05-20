@@ -34,3 +34,13 @@ recipesRouter.post(`/`, function(req, res) {
     payload: recipes} 
     res.json(responseObject)
   })
+
+
+  /*
+  - update our recipe in postman 
+  - we're not adding another item to the array -> XXXX array.push 
+  - use id of the recipe
+  - need a for loop to find correct id;
+  - delete object that matches id;
+  - replace with updated recipe
+   */
