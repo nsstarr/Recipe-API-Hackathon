@@ -1,3 +1,7 @@
 //Write your router code here!
+const express = require("express");
+const recipesRouter = express.Router();
 
-module.exports = recipesRouter;
+import recipes from '../libs/recipes.js';
+
+export default recipesRouter;

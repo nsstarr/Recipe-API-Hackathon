@@ -2,6 +2,8 @@ import express from "express";
 
 import { html } from "./config.js";
 
+import recipesRouter from "./router/recipes.js";
+
 const app = express();
 const PORT = 3000;
 
@@ -12,6 +14,8 @@ app.use(express.json());
 app.get("/", function (req, res) {
   res.sendFile(html);
 });
+
+
 
 app.listen(PORT, () => {
   console.log(`Listening on port ${PORT}`);
