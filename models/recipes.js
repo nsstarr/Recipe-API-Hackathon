@@ -1,5 +1,8 @@
 import recipes from "../libs/recipes.js";
 
+import express from "express";
+const recipesRouter = express.Router();
+
 // GET ALL RECIPES
 export function getRecipes() { 
 return recipes;
@@ -7,32 +10,22 @@ return recipes;
 
 
 // GET A RECIPE BY ID
-export function getRecipeByID(id) { 
-    recipesRouter.get("/:id", function(req, res) {
-       const id = req.params.id 
-       let searchedRecipe = {}
-       for (let i=0; i < recipes.length; i++) {
-          if (Number(id) === recipes[i].id) {
-          searchedRecipe = recipes[i]
-          }
-        }
-        const responseObject = {success: true, payload: searchedRecipe}
-        res.json(responseObject)
-        }
-    )
+export function getRecipeByID() { 
+    let id = req.params.id 
+    let searchedRecipe = {}
+    for (let i=0; i < recipes.length; i++) {
+       if (Number(id) === recipes[i].id) {
+       searchedRecipe = recipes[i]
+       return
+       }
+     }
+   
 }
 
 // CREATE A RECIPE
 export function createRecipe(newRecipe) {
-    recipesRouter.post(`/`, function(req, res) {
-       const body = req.body; 
-       recipes.push(body);
-       const responseObject = {
-         success: true,
-         payload: recipes} 
-         res.json(responseObject)
-    }
-    )
+    const body = req.body; 
+    recipes.push(body);
 }
 
 // UPDATE A RECIPE BY ID
@@ -50,17 +43,6 @@ export function updateRecipeByID(id, updatedRecipe) {
 
 // DELETE A RECIPE BY ID
 export function deleteRecipeByID(id) {
-    recipesRouter.delete('/:id', function (req, res) {
-    const id = req.params.id;
-    let deletedRecipe = {}
-    for (let i = 0; i < recipes.length; i++) {
-      if (Number(id) === recipes[i].id) {
-       deletedRecipe = recipes.splice(recipes[i])
-       break}  }
-      const responseObject = {success: true, payload: deletedRecipe}
-      res.json(responseObject)
-      }
-    )
 }
 
 

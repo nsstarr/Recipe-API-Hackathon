@@ -2,6 +2,8 @@
 import express from "express";
 const recipesRouter = express.Router();
 
+
+//get
 import {getRecipes} from "../models/recipes.js"
 
 recipesRouter.get("/", function (req, res) {
@@ -9,6 +11,69 @@ recipesRouter.get("/", function (req, res) {
   const responseObject = {success: true, payload: recipes}
   res.json(responseObject)
 })
+
+
+//get by id
+import {getRecipeByID} from "../models/recipes.js"
+
+recipesRouter.get("/:id", function(req, res) {
+     const searchedRecipe = getRecipeByID()
+     const responseObject = {success: true, payload: searchedRecipe}
+     res.json(responseObject)
+     }
+ )
+
+//post/create 
+
+import {createRecipe} from "../models/recipes.js"
+
+ recipesRouter.post(`/`, function(req, res) {
+    const recipes = createRecipe();
+    const responseObject = {
+      success: true,
+      payload: recipes} 
+      res.json(responseObject)
+ }
+ )
+
+ //put/update
+ recipesRouter.put('/:id', function(req, res) {    
+     const id = req.params.id;    
+     console.log(id)    
+     const body = req.body;    
+     console.log(body)    
+     let searchedRecipe = {}    
+     console.log(searchedRecipe)    
+     for (let i = 0; i < recipes.length; i++) {        
+         if (Number(id) === recipes[i].id) {            
+             recipes[i] = body            
+             searchedRecipe = recipes[i]            
+             break        
+            }   
+         }    
+         console.log(recipes)        
+         const responseObject = {
+             success: true, 
+             payload: searchedRecipe
+            }        
+            res.json(responseObject)  
+        }
+        )
+
+
+
+//delete
+ recipesRouter.delete('/:id', function (req, res) {
+    const id = req.params.id;
+    let deletedRecipe = {}
+    for (let i = 0; i < recipes.length; i++) {
+      if (Number(id) === recipes[i].id) {
+       deletedRecipe = recipes.splice(recipes[i])
+       break}  }
+      const responseObject = {success: true, payload: deletedRecipe}
+      res.json(responseObject)
+      }
+    )
 
 export default recipesRouter; 
 
