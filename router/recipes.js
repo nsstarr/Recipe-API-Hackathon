@@ -44,7 +44,9 @@ import {updateRecipeByID} from '../models/recipes.js'
  recipesRouter.put('/:id', function(req, res) {    
      const id = req.params.id;    
      const body = req.body;
-     let updatedRecipe = updateRecipeByID(id, body);            
+     let updatedRecipe = {}
+    updateRecipeByID(id, updatedRecipe);  
+    updatedRecipe = body;          
          const responseObject = {
              success: true, 
              payload: updatedRecipe
@@ -56,13 +58,11 @@ import {updateRecipeByID} from '../models/recipes.js'
 
 
 //delete
+import {deleteRecipeByID} from '../models/recipes.js'
+
  recipesRouter.delete('/:id', function (req, res) {
     const id = req.params.id;
-    let deletedRecipe = {}
-    for (let i = 0; i < recipes.length; i++) {
-      if (Number(id) === recipes[i].id) {
-       deletedRecipe = recipes.splice(recipes[i])
-       break}  }
+    let deletedRecipe = deleteRecipeByID(id)
       const responseObject = {success: true, payload: deletedRecipe}
       res.json(responseObject)
       }

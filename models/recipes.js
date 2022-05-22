@@ -29,19 +29,23 @@ export function createRecipe(newRecipe) {
 
 // UPDATE A RECIPE BY ID
 export function updateRecipeByID(id, updatedRecipe) {
-  let searchedRecipe = {} 
+  
   for (let i = 0; i < recipes.length; i++) {        
     if (Number(id) === recipes[i].id) {            
-        recipes[i] = updatedRecipe;           
-        console.log(recipes[i])           
+        updatedRecipe = recipes[i];                   
         break;   
        }   
-       return recipes[i];
 }}
 
 // DELETE A RECIPE BY ID
-// export function deleteRecipeByID(id) {
-// }
+export function deleteRecipeByID(id) {
+  for (let i = 0; i < recipes.length; i++) {
+    if (Number(id) === recipes[i].id) {
+     let deletedRecipe = recipes.splice(i, 1)
+     return deletedRecipe;
+    }  
+  }
+}
 
 
 /* PLAN
