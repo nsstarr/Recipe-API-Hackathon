@@ -28,34 +28,26 @@ recipesRouter.get("/:id", function(req, res) {
 
 import {createRecipe} from "../models/recipes.js"
 
- recipesRouter.post(`/`, function(req, res) {
-    const recipes = createRecipe();
+ recipesRouter.post(`/:id`, function(req, res) {
+    let body = req.body;
+    const newRecipe = createRecipe(body);
     const responseObject = {
       success: true,
-      payload: recipes} 
+      payload: newRecipe} 
       res.json(responseObject)
  }
  )
 
  //put/update
+import {updateRecipeByID} from '../models/recipes.js'
+
  recipesRouter.put('/:id', function(req, res) {    
      const id = req.params.id;    
-     console.log(id)    
-     const body = req.body;    
-     console.log(body)    
-     let searchedRecipe = {}    
-     console.log(searchedRecipe)    
-     for (let i = 0; i < recipes.length; i++) {        
-         if (Number(id) === recipes[i].id) {            
-             recipes[i] = body            
-             searchedRecipe = recipes[i]            
-             break        
-            }   
-         }    
-         console.log(recipes)        
+     const body = req.body;
+     let updatedRecipe = updateRecipeByID(id, body);            
          const responseObject = {
              success: true, 
-             payload: searchedRecipe
+             payload: updatedRecipe
             }        
             res.json(responseObject)  
         }

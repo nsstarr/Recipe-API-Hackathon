@@ -12,4 +12,9 @@ HACKATHON PLAN
     - write the code in router's file to post ✅
     - Post the data with Postman ✅
 
- 
+ {
+    "id": 2,
+    "title": "One-pan Spaghetti",
+    "Ingredients": "spaghetti, tomato",
+    "Instructions": "Boil spaghetti and serve."
+}
