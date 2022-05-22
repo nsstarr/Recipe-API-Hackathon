@@ -32,6 +32,7 @@ function handleSubmit(event) {
 
 async function createRecipe() {
   console.log(gatherFormData());
+  let url = "localhost:3000"
   const response = await fetch(`${url}/recipes`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
@@ -61,6 +62,7 @@ function handleClick(event) {
 }
 
 async function getRecipes() {
+  let url = "localhost:3000"
   const response = await fetch(`${url}/recipes`);
   const { payload } = await response.json();
   recipesSection.innerHTML = "";
